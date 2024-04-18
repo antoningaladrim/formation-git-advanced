@@ -3,31 +3,31 @@ const fs = require("fs");
 function getNumbersFromFile(filename) {
   try {
     const data = fs.readFileSync(filename, "utf8");
-    const nums = data
+    const foos = data
       .split("\n")
       .map((line) => line.trim())
       .filter((line) => line !== "")
       .map(Number);
-    return nums;
+    return foos;
   } catch (err) {
     console.error("Error reading file:", err);
     return [];
   }
 }
 
-function getSum(numbers) {
-  return numbers.reduce((acc, curr) => acc + curr, 0);
+function getSum(foos) {
+  return foos.reduce((acc, curr) => acc + curr, 0);
 }
 
-function getAverage(numbers) {
-  if (numbers.length === 0) return 0;
-  return getSum(numbers) / numbers.length;
+function getAverage(foos) {
+  if (foos.length === 0) return 0;
+  return getSum(foos) / foos.length;
 }
 
 function main() {
-  const numbers = getNumbersFromFile("numbers.txt");
-  const total = getSum(numbers);
-  const average = getAverage(numbers);
+  const foos = getNumbersFromFile("numbers.txt");
+  const total = getSum(foos);
+  const average = getAverage(foos);
 
   console.log(`Sum: ${total}`);
   console.log(`Average: ${average}`);
