@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-function parseNumbers(filename) {
+function getNumbersFromFile(filename) {
   try {
     const data = fs.readFileSync(filename, "utf8");
     const nums = data
@@ -25,7 +25,7 @@ function getAverage(numbers) {
 }
 
 function main() {
-  const numbers = readNumbers("numbers.txt");
+  const numbers = getNumbersFromFile("numbers.txt");
   const total = getSum(numbers);
   const average = getAverage(numbers);
 
