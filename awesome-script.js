@@ -15,19 +15,19 @@ function parseNumbers(filename) {
   }
 }
 
-function computeSum(nums) {
-  return nums.reduce((acc, curr) => acc + curr, 0);
+function getSum(numbers) {
+  return numbers.reduce((acc, curr) => acc + curr, 0);
 }
 
-function computeAverage(nums) {
-  if (nums.length === 0) return 0;
-  return calculateSum(nums) / nums.length;
+function calculateAverage(numbers) {
+  if (numbers.length === 0) return 0;
+  return getSum(numbers) / numbers.length;
 }
 
 function main() {
-  const nums = parseNumbers("numbers.txt");
-  const total = computeSum(nums);
-  const average = computeAverage(nums);
+  const numbers = readNumbers("numbers.txt");
+  const total = getSum(numbers);
+  const average = calculateAverage(numbers);
 
   console.log(`Sum: ${total}`);
   console.log(`Average: ${average}`);
