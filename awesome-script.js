@@ -19,7 +19,7 @@ function getSum(numbers) {
   return numbers.reduce((acc, curr) => acc + curr, 0);
 }
 
-function calculateAverage(numbers) {
+function getAverage(numbers) {
   if (numbers.length === 0) return 0;
   return getSum(numbers) / numbers.length;
 }
@@ -27,7 +27,7 @@ function calculateAverage(numbers) {
 function main() {
   const numbers = readNumbers("numbers.txt");
   const total = getSum(numbers);
-  const average = calculateAverage(numbers);
+  const average = getAverage(numbers);
 
   console.log(`Sum: ${total}`);
   console.log(`Average: ${average}`);
