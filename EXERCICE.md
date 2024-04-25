@@ -1,10 +1,11 @@
 # git-formation
 
-Let's learn how to use interactive rebases  
+**Goal**: Learn how to use the interactive (`-i`) rebase option
+
 This exercise assumes you are comfortable with a regular rebase. If you aren't, go do the exercise on `exo/rebase-basic`.
 
 In this branch, there are 6 commits. One out of two commit is just fixing a typo in the previous commit.  
-Using the command `git rebase -i main`, find a way to squash the commits with the message `typo fixup` with the previous commit in the chain.
+Using the command `git rebase -i main`, find a way to squash the every commit with the message `typo fixup` with the previous commit in the chain.
 
 Every detail you need to complete this exercise is present in the little menu that appears when you run `git rebase -i`.  
 As a hint, the options that you need to look at are `squash` and / or `fixup`
@@ -23,3 +24,15 @@ The good thing is that you can pretend like you never made a mistake in the firs
 
 There are plenty of other ways of doing this, the most common being `git commit --amend`, which squishes the changes in your staging area (so, anything you used `git add` on) with your previous commit, to make a brand new commit.  
 But `git rebase -i` really allows you to have an overview over a series of changes, NOT just the last commit.
+
+## Bonus exercise
+
+Learn a cool hack by doing this:
+
+- run `git commit --allow-empty --fixup HEAD`
+- run `git log`, notice how the commit you just created has `fixup!` as a prefix at the start of its message
+- run `git rebase -i --autosquash HEAD~2`. This will rebase the branch against 2 commits behind itself. Notice how the commit you just created already has the fixup option next to it!
+
+You can do the same thing with squashes: `git commit --squash <commit-SHA>`  
+Basically, you mark a commit for a future fixup or squash by doing that.  
+When you run `git rebase -i --autosquash`, it will automatically detect the commits with the `fixup!` or `squash!` prefix, and select the appropriate option.
