@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-function readNumbers(filename) {
+function function_that_reads_and_parses_numbers_from_a_text_file(filename) {
   try {
     const data = fs.readFileSync(filename, "utf8");
     const numbers = data
@@ -15,19 +15,24 @@ function readNumbers(filename) {
   }
 }
 
-function calculateSum(numbers) {
+function function_that_computes_the_sum_of_an_array_of_numbers(numbers) {
   return numbers.reduce((acc, curr) => acc + curr, 0);
 }
 
-function calculateAverage(numbers) {
+function function_that_calculates_the_average_of_an_array_of_numbers(numbers) {
   if (numbers.length === 0) return 0;
-  return calculateSum(numbers) / numbers.length;
+  return (
+    function_that_computes_the_sum_of_an_array_of_numbers(numbers) /
+    numbers.length
+  );
 }
 
 function main() {
-  const numbers = readNumbers("numbers.txt");
-  const total = calculateSum(numbers);
-  const average = calculateAverage(numbers);
+  const numbers =
+    function_that_reads_and_parses_numbers_from_a_text_file("numbers.txt");
+  const total = function_that_computes_the_sum_of_an_array_of_numbers(numbers);
+  const average =
+    function_that_calculates_the_average_of_an_array_of_numbers(numbers);
 
   console.log(`Sum: ${total}`);
   console.log(`Average: ${average}`);
